@@ -1,0 +1,188 @@
+:root {
+  --cl-1: black;
+  --cl-2: white;
+  --cl-3: #F4CA16;
+  --cl-4: #E60203;
+  --cl-5: #F2F2F2;
+  --cl-6: rgba(230, 2, 3, 0.05);
+  --cl-7: #eaeaea;
+  --cl-8: #ff6061;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "arm-bainsley-regular", sans-serif;
+}
+*:after *:before {
+  padding: 0;
+  margin: 0;
+}
+
+@font-face {
+  font-family: "arm-babes-regular";
+  src: url("../assets/fonts/armBebas.ttf") format("truetype");
+}
+@font-face {
+  font-family: "arm-bainsley-regular";
+  src: url("../assets/fonts/bainsley/Bainsley.ttf") format("truetype");
+}
+body {
+  background-color: var(--cl-5);
+}
+
+.container {
+  max-width: 1500px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+button {
+  cursor: pointer;
+  overflow: hidden;
+}
+
+.button-1 {
+  border-radius: 10px;
+  border: 2px solid var(--cl-4);
+  font-size: 15px;
+  line-height: 100%;
+  transition: border 0.2s ease-in-out, background 0.2s ease-in-out;
+  background: transparent;
+}
+.button-1:hover {
+  border: 2px solid var(--cl-3);
+  background: var(--cl-6);
+}
+
+header {
+  width: 100%;
+}
+header .container {
+  padding: 5px 40px;
+  border-radius: 15px;
+  margin-top: 30px;
+  background: var(--cl-7);
+  -webkit-box-shadow: 0 5px 20px 2px rgba(0, 0, 0, 0.11);
+  -moz-box-shadow: 0 5px 20px 2px rgba(0, 0, 0, 0.11);
+  box-shadow: 0 5px 20px 2px rgba(0, 0, 0, 0.11);
+}
+header .container-inner {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+}
+header .container-inner .logo {
+  position: relative;
+  user-select: none;
+  cursor: pointer;
+}
+header .container-inner .logo img {
+  width: 180px;
+  pointer-events: none;
+  user-select: none;
+}
+header .container-inner .info {
+  display: flex;
+  gap: 50px;
+  align-items: center;
+}
+header .container-inner .info .menu {
+  display: flex;
+  align-items: center;
+}
+header .container-inner .info .menu ul {
+  display: flex;
+  gap: 20px;
+  list-style: none;
+  align-items: center;
+}
+header .container-inner .info .menu ul li a {
+  color: var(--cl-1);
+  line-height: 100%;
+  font-weight: bold;
+  font-size: 15px;
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: color 0.2s ease-in-out;
+}
+header .container-inner .info .menu ul li a:hover {
+  color: var(--cl-3);
+}
+header .container-inner .info button {
+  display: flex;
+  align-items: center;
+  padding: 8px 15px;
+}
+
+.primary-header {
+  width: 100%;
+  padding: 10px;
+}
+.primary-header .container-inner {
+  display: flex;
+  padding: 100px 0;
+  position: relative;
+  gap: 20px;
+}
+.primary-header .container-inner .title {
+  width: 65%;
+}
+.primary-header .container-inner .title h1 {
+  font-size: 3.5em;
+  margin-bottom: 20px;
+}
+.primary-header .container-inner .title p {
+  margin-bottom: 20px;
+}
+.primary-header .container-inner .title button {
+  padding: 12px 25px;
+  border-radius: 10px;
+  background: var(--cl-4);
+  border: none;
+  color: var(--cl-2);
+  text-transform: uppercase;
+  font-size: 15px;
+  line-height: 100%;
+  transition: background-color 0.2s ease-in-out;
+}
+.primary-header .container-inner .title button:hover {
+  background-color: var(--cl-8);
+}
+.primary-header .container-inner .title button:active {
+  background-color: var(--cl-4);
+}
+.primary-header .container-inner .background {
+  width: 45%;
+  position: relative;
+}
+.primary-header .container-inner .background .background-inner {
+  display: flex;
+  justify-content: flex-end;
+  height: 500px;
+}
+.primary-header .container-inner .background .background-main-images {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+.primary-header .container-inner .background .background-main-images img {
+  position: absolute;
+  pointer-events: none;
+  user-select: none;
+}
+.primary-header .container-inner .background .background-main-images img:nth-child(2) {
+  height: 115%;
+  transform: rotate(-40deg);
+  z-index: -1;
+  top: -30px;
+}
+.primary-header .container-inner .background .background-main-images img:nth-child(1) {
+  height: 100%;
+  z-index: 0;
+  right: 50px;
+  bottom: -10px;
+}
+
+/*# sourceMappingURL=style.css.map */

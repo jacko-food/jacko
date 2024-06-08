@@ -1,0 +1,41 @@
+*
+  margin: 0
+  padding: 0
+  box-sizing: border-box
+  font-family: 'arm-bainsley-regular', sans-serif
+
+  &:after &:before
+    padding: 0
+    margin: 0
+
+@font-face
+  font-family: 'arm-babes-regular'
+  src: url('../assets/fonts/armBebas.ttf') format('truetype')
+
+@font-face
+  font-family: 'arm-bainsley-regular'
+  src: url('../assets/fonts/bainsley/Bainsley.ttf') format('truetype')
+
+body
+  background-color: var(--cl-5)
+
+.container
+  max-width: 1500px
+  width: 100%
+  margin: 0 auto
+
+button
+  cursor: pointer
+  overflow: hidden
+
+.button-1
+  border-radius: 10px
+  border: 2px solid var(--cl-4)
+  font-size: 15px
+  line-height: 100%
+  transition: border 0.2s ease-in-out, background 0.2s  ease-in-out
+  background: transparent
+
+  &:hover
+    border: 2px solid var(--cl-3)
+    background: var(--cl-6)

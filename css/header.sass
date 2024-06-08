@@ -1,0 +1,59 @@
+header
+  width: 100%
+
+  .container
+    padding: 5px 40px
+    border-radius: 15px
+    margin-top: 30px
+    background: var(--cl-7)
+    -webkit-box-shadow: 0 5px 20px 2px rgba(0, 0, 0, 0.11)
+    -moz-box-shadow: 0 5px 20px 2px rgba(0, 0, 0, 0.11)
+    box-shadow: 0 5px 20px 2px rgba(0, 0, 0, 0.11)
+
+  .container-inner
+    display: flex
+    width: 100%
+    justify-content: space-between
+
+    .logo
+      position: relative
+      user-select: none
+      cursor: pointer
+
+      img
+        width: 180px
+        pointer-events: none
+        user-select: none
+
+    .info
+      display: flex
+      gap: 50px
+      align-items: center
+
+      .menu
+        display: flex
+        align-items: center
+
+        ul
+          display: flex
+          gap: 20px
+          list-style: none
+          align-items: center
+
+          li
+            a
+              color: var(--cl-1)
+              line-height: 100%
+              font-weight: bold
+              font-size: 15px
+              text-decoration: none
+              text-transform: uppercase
+              transition: color 0.2s ease-in-out
+
+              &:hover
+                color: var(--cl-3)
+
+      button
+        display: flex
+        align-items: center
+        padding: 8px 15px
