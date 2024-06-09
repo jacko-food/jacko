@@ -18,12 +18,12 @@ document.addEventListener('DOMContentLoaded', function() {
             const distance = Math.sqrt(dx * dx + dy * dy);
 
             if (distance < 10) {
-                gsap.to(pos.element, {duration: pos.speed, x: mouseX - 25, y: mouseY - 25});
+                gsap.to(pos.element, {duration: pos.speed, x: mouseX - 25 - pos.x, y: mouseY - 25 - pos.y});
             } else {
                 const angle = Math.atan2(dy, dx);
                 const limitX = pos.x + 25 + 10 * Math.cos(angle);
                 const limitY = pos.y + 25 + 10 * Math.sin(angle);
-                gsap.to(pos.element, {duration: pos.speed, x: limitX - 25, y: limitY - 25});
+                gsap.to(pos.element, {duration: pos.speed, x: limitX - 25 - pos.x, y: limitY - 25 - pos.y});
             }
         });
     });

@@ -1,0 +1,94 @@
+.food-menu
+  background-color: #ffffff
+  padding: 60px 20px
+
+  .container-inner
+    h2
+      text-transform: uppercase
+      font-size: 2em
+      line-height: 100%
+
+  .menu-items
+    margin-top: 20px
+    display: flex
+    flex-wrap: wrap
+    justify-content: space-between
+    gap: 20px
+
+    .menu-item
+      cursor: pointer
+      background-color: #f9f9f9
+      border: 1px solid rgba(224, 224, 224, 0.3)
+      border-radius: 20px
+      padding: 20px
+      max-width: calc(25% - 20px)
+      width: 100%
+
+      &:hover
+        .menu-image
+          img:nth-child(2)
+            transform: scale(1.03)
+
+      .menu-image
+        width: 100%
+        aspect-ratio: 1 / 1
+        position: relative
+        margin-bottom: 20px
+        border-radius: 10px
+        overflow: hidden
+        img
+          top: 0
+          left: 0
+          position: absolute
+          width: 100%
+          height: 100%
+          transition: transform 0.2s ease-in-out
+          user-select: none
+          pointer-events: none
+
+
+      .price-and-buy
+        display: flex
+        justify-content: space-between
+        align-items: center
+
+        button
+          border-radius: 5px
+          padding: 6px 15px
+          line-height: 100%
+          outline: none
+          border: none
+          background-color: var(--cl-4)
+          color: var(--cl-2)
+          transition: background-color 0.2s ease-in-out
+
+          &:hover
+            background-color: var(--cl-8)
+
+          &:active
+            background-color: var(--cl-4)
+
+      strong
+        display: block
+        font-size: 20px
+        color: var(--cl-4)
+        margin-bottom: 10px
+        text-align: center
+
+      p
+        font-size: 15px
+        margin-bottom: 10px
+        line-height: 110%
+        overflow: hidden
+        text-overflow: ellipsis
+        display: -webkit-box
+        -webkit-line-clamp: 5
+        -webkit-box-orient: vertical
+
+      .price
+        font-size: 18px
+        color: var(--cl-4)
+        font-weight: bold
+        font-family: arial, sans-serif
+        line-height: 100%
+
