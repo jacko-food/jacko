@@ -10,8 +10,8 @@ async function modalProduct(id) {
             <div class="modal-content">
                 <div class="modal-image"><img src="${data.image1}" alt=""></div>
                 <div class="modal-content-info">
-                 <h2>${data.titleAm}</h2>
-                 <p>${data.descriptionAm}</p>
+                 <h2>${data.title}</h2>
+                 <p>${data.description}</p>
                  <p class="modal-product-price">${data.price}</p>
                  <button>Պատվիրել հիմա</button>
                 </div>

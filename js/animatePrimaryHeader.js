@@ -2,7 +2,6 @@ document.addEventListener('DOMContentLoaded', function() {
     const img1 = document.getElementById('img1');
     const img2 = document.getElementById('img2');
 
-    // Начальные координаты изображений
     const initialPositions = [
         {element: img1, x: img1.offsetLeft, y: img1.offsetTop, speed: 0.3},
         {element: img2, x: img2.offsetLeft, y: img2.offsetTop, speed: 1}

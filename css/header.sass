@@ -56,7 +56,30 @@ header
               &:hover
                 color: var(--cl-3)
 
-      button
+
+      .menu-buttons
         display: flex
         align-items: center
-        padding: 8px 15px
+        justify-content: space-between
+        gap: 10px
+
+        button
+          background-color: var(--cl-7)
+          display: flex
+          align-items: center
+          padding: 8px 15px
+
+        button:nth-child(2)
+          color: var(--cl-4)
+          border: none
+          outline: none
+          background-color: var(--cl-10)
+          font-size: 16px
+          border-radius: 10px
+          padding: 10px 17px
+          transition: color 0.2s ease-in-out, background-color 0.2s ease-in-out
+
+          &:hover
+            background-color: var(--cl-4)
+            color: var(--cl-2)
+
