@@ -603,4 +603,115 @@ header .container-inner .info .menu-buttons button:nth-child(2):hover {
   }
 }
 
+.about-us {
+  padding: 60px 20px;
+  background-color: var(--cl-2);
+}
+.about-us .container-inner h2 {
+  text-transform: uppercase;
+  font-size: 2em;
+  line-height: 100%;
+}
+.about-us .container-inner .about-us-main-container {
+  display: flex;
+  max-width: 1200px;
+  width: 100%;
+  margin: 20px auto 0 auto;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+.about-us .container-inner .about-us-main-container .about-us-image {
+  flex: 1;
+  min-width: 400px;
+}
+.about-us .container-inner .about-us-main-container .about-us-image img {
+  width: 100%;
+  pointer-events: none;
+  user-select: none;
+}
+.about-us .container-inner .about-us-main-container .about-us-info {
+  flex: 2;
+  padding: 20px;
+}
+.about-us .container-inner .about-us-main-container .about-us-info h2 {
+  margin-bottom: 20px;
+}
+.about-us .container-inner .about-us-main-container .about-us-info p {
+  font-size: 17px;
+  color: var(--cl-11);
+  margin-bottom: 10px;
+}
+
+.contact {
+  padding: 60px 20px;
+}
+.contact .container {
+  max-width: 1200px;
+}
+.contact .contact-main-container {
+  display: flex;
+  width: 100%;
+  margin: 20px auto 0 auto;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 20px;
+}
+.contact .contact-main-container .contact-main-title {
+  width: 100%;
+}
+.contact .contact-main-container .contact-main-title h2 {
+  margin: 30px 0 20px 0;
+  text-transform: uppercase;
+  font-size: 2em;
+  line-height: 100%;
+}
+.contact .contact-main-container .contact-main-title p {
+  margin-bottom: 10px;
+}
+.contact .contact-main-container .contact-main-form {
+  background-color: var(--cl-2);
+  border-radius: 20px;
+  padding: 20px 10px;
+  display: flex;
+  flex-direction: column;
+  max-width: 400px;
+  width: 100%;
+}
+.contact .contact-main-container .contact-main-form label {
+  margin: 25px 0 7px 0;
+  line-height: 100%;
+  font-size: 17px;
+  color: var(--cl-11);
+}
+.contact .contact-main-container .contact-main-form input, .contact .contact-main-container .contact-main-form textarea {
+  max-width: 380px;
+  width: 100%;
+  padding: 10px 15px;
+  border-radius: 10px;
+  outline: none;
+  font-size: 16px;
+  border: 1px solid var(--cl-9);
+}
+.contact .contact-main-container .contact-main-form textarea {
+  height: 150px;
+}
+.contact .contact-main-container .contact-main-form button {
+  margin-top: 20px;
+  border-radius: 5px;
+  padding: 12px 15px;
+  line-height: 100%;
+  outline: none;
+  border: none;
+  background-color: var(--cl-4);
+  color: var(--cl-2);
+  transition: background-color 0.2s ease-in-out;
+}
+.contact .contact-main-container .contact-main-form button:hover {
+  background-color: var(--cl-8);
+}
+.contact .contact-main-container .contact-main-form button:active {
+  background-color: var(--cl-4);
+}
+
 /*# sourceMappingURL=style.css.map */
