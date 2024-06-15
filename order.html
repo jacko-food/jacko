@@ -1,0 +1,95 @@
+<script>
+    const order = JSON.parse(localStorage.getItem('orderObject'));
+    console.log(order);
+    if (!order) {
+        window.location.href = 'index.html';
+    } else {
+        const params = new URLSearchParams();
+        params.append('productName', JSON.stringify(order));
+
+        fetch('inc/generate_receipt.php', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({productName: order})
+        })
+            .then(response => response.blob())
+            .then(blob => {
+                const url = URL.createObjectURL(blob);
+                const a = document.createElement('a');
+                a.href = url;
+                a.download = 'receipt.pdf';
+                document.body.appendChild(a);
+                a.click();
+                document.body.removeChild(a);
+            })
+            .catch(error => {
+                console.error(error);
+            })
+            .finally(() => {
+                localStorage.removeItem('orderObject');
+            });
+    }
+
+</script>
+
+<html lang="hy">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="description" content="">
+  <title>Պատվերն ընդունված է</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="shortcut icon" href="assets/img/jacko/jacko-icon-1.png" type="image/x-icon">
+</head>
+<body>
+<h1>Ձեր Պատվերն Ընդունված է</h1>
+<strong>Մեր մենեջերը կկապնվի ձեզ հետ մի քանի րոպե անց պատվերի հաստատման համար</strong>
+<button onclick="window.location.href = 'index.html'">Ետ վերադառնալ</button>
+</body>
+<style>
+ body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  h1 {
+   font-size: 3.5em;
+   color: var(--cl-1);
+   line-height: 100%;
+   margin-top: 30px;
+   text-align: center;
+  }
+
+  strong {
+   font-size: 1.2em;
+   line-height: 100%;
+   margin-top: 15px;
+   color: var(--cl-1);
+   text-align: center;
+  }
+
+  button {
+   margin-top: 20px;
+   max-width: 250px;
+   padding: 10px 15px;
+   background-color: var(--cl-4);
+   border-radius: 5px;
+   border: none;
+   outline: none;
+   color: var(--cl-2);
+   line-height: 100%;
+   transition: background-color 0.2s ease-in-out;
+
+   &:hover {
+    background-color: var(--cl-8);
+   }
+
+   &:active {
+    background-color: var(--cl-4);
+   }
+  }
+ }
+</style>
+</html>

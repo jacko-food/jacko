@@ -1,0 +1,16 @@
+{
+  "name": "vendor_name/js",
+  "description": "description",
+  "minimum-stability": "stable",
+  "license": "proprietary",
+  "authors": [
+    {
+      "name": "entiy",
+      "email": "email@example.com"
+    }
+  ],
+  "require": {
+    "intervention/image": "^3.7",
+    "mpdf/mpdf": "^8.2"
+  }
+}

@@ -1,0 +1,27 @@
+POST http://localhost:63342/JACKO/inc/generate_receipt.php
+Accept: application/json
+Content-Type: application/json
+
+{
+  "products": [
+    {
+      "productId": "cart-item-0",
+      "productName": "Չալոյի Չալաղաջ",
+      "productPrice": 1200,
+      "productCount": 2
+    },
+    {
+      "productId": "cart-item-1",
+      "productName": "Բառսիկի Խորոված",
+      "productPrice": 2500,
+      "productCount": 3
+    },
+    {
+      "productId": "cart-item-2",
+      "productName": "Կեշայի Նագգեթսներ",
+      "productPrice": 900,
+      "productCount": 1
+    }
+  ],
+  "only": 10800
+}

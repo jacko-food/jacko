@@ -12,7 +12,7 @@
   transition: opacity 0.2s ease-in-out
 
   &.active
-    display: block
+    display: flex
     opacity: 1
 
   .cart-inner
@@ -25,11 +25,15 @@
     opacity: 0
     transition: opacity 0.2s ease-in-out, right 0.2s ease-in-out
     padding: 10px
+    display: flex
+    flex-direction: column
+    flex: 1
 
     .cart-title
       display: flex
       justify-content: space-between
       align-items: center
+
       button
         border: none
         background-color: transparent
@@ -43,6 +47,157 @@
 
         &:active
           color: var(--cl-4)
+
+
+    .cart-container
+      width: 100%
+      height: 100%
+      display: flex
+      flex-direction: column
+      padding-top: 50px
+
+      .products-container
+        flex: 1
+
+      .order
+        margin: 20px 0
+
+        .order-no-loc
+          background-color: transparent
+          color: var(--cl-4)
+          text-decoration: underline
+          border: none
+          outline: none
+          transition: color 0.2s ease-in-out
+          margin-bottom: 3px
+
+          &:hover
+            color: var(--cl-8)
+
+          &:active
+            color: var(--cl-4)
+
+
+        .order-buy-button
+          width: 100%
+          margin-top: 15px
+
+          button
+            border-radius: 5px
+            width: 100%
+            padding: 8px 15px
+            line-height: 100%
+            outline: none
+            border: none
+            background-color: var(--cl-4)
+            color: var(--cl-2)
+            transition: background-color 0.2s ease-in-out
+
+            &:hover
+              background-color: var(--cl-8)
+
+            &:active
+              background-color: var(--cl-4)
+
+            &:disabled
+              background-color: var(--cl-9)
+
+
+        .order-info-title
+          width: 100%
+          display: flex
+          justify-content: space-between
+          align-items: center
+          line-height: 100%
+          font-size: 19px
+
+          #order-all-price
+            color: var(--cl-4)
+            font-family: Arial, sans-serif
+
+      .cart-item
+        width: 100%
+        display: flex
+        padding: 10px 20px
+        border-radius: 20px
+        transition: background-color 0.2s ease-in-out
+
+        &:hover
+          background-color: var(--cl-12)
+
+        .cart-image
+          width: 30%
+          margin-right: 10px
+          aspect-ratio: 1 / 1
+
+          img
+            width: 100%
+            height: 100%
+
+        .cart-info
+          display: flex
+          flex-direction: column
+          flex: 1
+
+          strong
+            display: flex
+            justify-content: space-between
+            font-size: 20px
+            color: var(--cl-4)
+            margin-bottom: 5px
+            text-align: center
+            line-height: 100%
+
+            i
+              transition: color 0.2s ease-in-out
+              cursor: pointer
+
+              i:hover
+                color: var(--cl-8) !important
+
+              i:active
+                color: var(--cl-4) !important
+
+          .price-and-buy
+            display: flex
+            flex-direction: column
+            flex: 1
+
+            .product-count
+
+              margin-top: 10px
+              display: flex
+              justify-content: flex-start
+
+              button
+                width: 25px
+                height: 25px
+                font-size: 17px
+                color: var(--cl-1)
+                border: none
+                outline: none
+                transition: color 0.2s ease-in-out, background-color 0.2s ease-in-out
+
+                &:hover
+                  background-color: var(--cl-8)
+
+                &:active
+                  background-color: var(--cl-4)
+                  color: var(--cl-2)
+
+              span
+                user-select: none
+                pointer-events: none
+                font-family: Arial, sans-serif
+                width: 30px
+                height: 25px
+                font-size: 16px
+                display: flex
+                align-items: center
+                justify-content: center
+                background-color: var(--cl-12)
+                color: var(--cl-1)
+
 
     &.active
       right: 0

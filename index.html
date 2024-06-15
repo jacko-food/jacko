@@ -34,8 +34,8 @@
           </ul>
         </div>
         <div class="menu-buttons">
-          <button class="button-1">Պատվիրել Հիմա</button>
-          <button onclick="openCart()"><i class="fa-solid fa-cart-shopping"></i></button>
+          <button class="button-1" onclick="window.location.href='#food-menu'">Պատվիրել Հիմա</button>
+          <button onclick="openCart()"><i class="fa-solid fa-cart-shopping"></i><span>0</span></button>
         </div>
       </div>
     </div>
@@ -45,17 +45,17 @@
 <!-- $$$ primary Header $$$ -->
 <section class="primary-header" id="primary-header">
   <div class="container">
-    <div class="container-inner">
+    <div class="container-inner" data-aos="fade-in">
       <div class="title">
-        <h1 data-aos="fade-up" data-aos-duration="600">Շաուրմա Ջեկոյից. երբ ընկերոջ համն
+        <h1>Շաուրմա Ջեկոյից. երբ ընկերոջ համն
           ամենակարևորն է:</h1>
-        <p data-aos="fade-up" data-aos-duration="800">Ի՞նչ եք կարծում, շաուրման ընդամենը միս է
+        <p>Ի՞նչ եք կարծում, շաուրման ընդամենը միս է
           պիտայի հացի մեջ: Անկախ նրանից, թե ինչպես է դա!<br> Յուրաքանչյուր
           խայթոց
           ներծծված է Ջեկոյի հետ իսկական բարեկամությամբ: Փորձեք մեր բացառիկ<br> քյաբաբն ու շաուրման գաղտնի բաղադրիչով՝
           Ջեկո
           շունը: Եկեք միասին ծիծաղենք, քանի որ մարդու լավագույն<br> ընկերը միշտ ձեռքի տակ է:</p>
-        <button class="button-2" data-aos="fade-up" data-aos-duration="1000">Պատվիրել հիմա</button>
+        <button class="button-2" onclick="window.location.href='#food-menu'">Պատվիրել հիմա</button>
       </div>
       <div class="background">
         <div class="background-inner">
@@ -75,7 +75,7 @@
 <section class="advantages" id="advantages">
   <div class="container">
     <div class="container-inner">
-      <div class="adv-block" data-aos="fade-up" data-aos-delay="100">
+      <div class="adv-block" data-aos="fade-in">
         <div class="img">
           <img src="assets/img/shh.png" alt="">
         </div>
@@ -87,7 +87,7 @@
           լավագույն ընկերոջ լավագույն կտորը:
         </p>
       </div>
-      <div class="adv-block" data-aos="fade-up" data-aos-delay="200">
+      <div class="adv-block" data-aos="fade-in">
         <div class="img">
           <img src="assets/img/friendly.png" alt="">
         </div>
@@ -99,7 +99,7 @@
           ընկերոջը՝ նախքան նրան ավելացնելով մեր հատուկ համեմունքներով։
         </p>
       </div>
-      <div class="adv-block" data-aos="fade-up" data-aos-delay="300">
+      <div class="adv-block" data-aos="fade-in">
         <div class="img">
           <img src="assets/img/kebab.png" alt="">
         </div>
@@ -111,7 +111,7 @@
           Շնաբարի ընտրանքները այստեղ միշտ առատ են։
         </p>
       </div>
-      <div class="adv-block" data-aos="fade-up" data-aos-delay="400">
+      <div class="adv-block" data-aos="fade-in">
         <div class="img">
           <img src="assets/img/pets.png" alt="">
         </div>
@@ -157,7 +157,7 @@
                         <p>${item.description}</p>
                         <div class="price-and-buy">
                           <span class="price">${item.price} / ${item.mass}</span>
-                          <button class="button-2" onclick="buy('')">Պատվիրել</button>
+                          <button class="button-2" onclick="foodBuy(${item.id}, '${item.title}', '${item.price}', '${item.mass}', '${item.image1}', '${item.alt1}')">Պատվիրել</button>
                         </div>
                       </div>
                     `;
@@ -337,13 +337,108 @@
       <button onclick="closeCart()"><i class="fa-regular fa-circle-xmark"></i></button>
     </div>
     <div class="cart-container">
-      <script>
+      <div class="products-container">
+        <script>
+            function generateCartItems(productObject) {
+                let product = JSON.parse(productObject);
 
-      </script>
+                const cartContainer = document.querySelector('.products-container');
+                const cartItemHTML = `
+                          <div class="cart-item" id='cart-item-${product.productId}'>
+                              <div class="cart-image">
+                                  <img src="${product.productImageUrl}" alt="${product.productImageAlt}">
+                              </div>
+                              <div class="cart-info">
+                                 <strong>${product.productTitle}<i class="fa-solid fa-xmark" onclick="removeCartItem(${product.productId})"></i></strong>
+
+                                <div class="price-and-buy">
+                                    <span class="price-and-mass"><span class="price">${product.productPrice}</span>֏ / <span>${product.productMass}</span></span>
+                                    <div class="product-count">
+                                      <button type="button" onclick="productCount('minus', ${product.productId})">-</button>
+                                      <span id="current-product-counter">1</span>
+                                      <button type="button" onclick="productCount('plus', ${product.productId})">+</button>
+                                    </div>
+                                </div>
+                              </div>
+                          </div>
+                      `;
+
+                cartContainer.insertAdjacentHTML('beforeend', cartItemHTML);
+            }
+
+            function getCartItems() {
+                for (let i = 0; i < localStorage.length; i++) {
+                    let key = localStorage.key(i);
+
+                    if (key.startsWith('productID:')) {
+                        const currentItem = localStorage.getItem(`${key}`);
+                        generateCartItems(currentItem)
+
+                    }
+                }
+                updateAllProductsPrice()
+            }
+
+            function addCartItem(productId) {
+                const currentItem = localStorage.getItem(`productID: ${productId}`);
+                generateCartItems(currentItem);
+            }
+
+            function removeCartItem(productId) {
+                document.querySelector(`.cart-container #cart-item-${productId}`).remove()
+                localStorage.removeItem(`productID: ${productId}`);
+                checkCartItemsCount();
+                updateAllProductsPrice();
+                checkAddressStatus();
+            }
+
+            document.addEventListener('DOMContentLoaded', () => {
+                getCartItems();
+            });
+        </script>
+      </div>
+      <div class="order">
+        <button class="order-no-loc" onclick="openAddress();">Ավելացնել հասցեն</button>
+        <div class="order-info-title">
+          <strong>Ընդամենը:</strong>
+          <strong id="order-all-price">1000 դրամ</strong>
+        </div>
+        <div class="order-buy-button">
+          <button class="start-order-button" disabled onclick="orderNow();">Պատվիրել Հիմա</button>
+        </div>
+      </div>
     </div>
   </div>
 </section>
 <!-- ### cart ### -->
+<!-- ### address ### -->
+<section class="verify-address" id="verify-address">
+  <div class="container">
+    <div class="container-inner">
+      <div class="loading">
+        <div class="loader"></div>
+      </div>
+      <div class="address">
+        <div class="address-title">
+          <h2>Ավելացնել Հասցե</h2>
+          <i class="fa-regular fa-circle-xmark" aria-hidden="true" onclick="closeAddress()"></i>
+        </div>
+        <div class="address-form-container">
+          <form action="" method="GET" class="address-form" onsubmit="submitAddress(event)">
+            <label for="username">Ձեր անունը</label>
+            <input type="text" id="username" placeholder="Ձեր անունը" required>
+            <label for="phone">Հեռախոսահամար</label>
+            <input type="number" id="phone" placeholder="Ձեր Հեռախոսահամարը +374 94 161 331" required>
+            <label for="address">Ձեր Հասցեն</label>
+            <input type="text" id="address" placeholder="Ձեր Հասցեն" required>
+            <button type="submit">Ավելացնել</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- ### address ### -->
 <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 <script src="https://kit.fontawesome.com/36abf4b57f.js" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
@@ -351,6 +446,8 @@
 <script src="js/aosInit.js"></script>
 <script src="js/animatePrimaryHeader.js"></script>
 <script src="js/modalProduct.js"></script>
+<script src="js/verifyAddress.js"></script>
+<script src="js/alert.js"></script>
 <script src="js/cart.js"></script>
 <script src="js/buy.js"></script>
 </body>

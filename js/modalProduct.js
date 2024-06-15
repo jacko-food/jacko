@@ -55,8 +55,8 @@ function closeProductModal() {
     document.querySelector('.loading').style.display = 'none';
     setTimeout(function () {
         document.querySelector('.modal').style.display = 'none';
-        document.body.style.overflowY = 'scroll';
         document.querySelector(".modal-product").style.display = 'none';
         document.querySelector('.loading').style.display = 'flex';
+        document.body.style.overflowY = 'scroll';
     }, 300)
 }

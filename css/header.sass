@@ -78,8 +78,32 @@ header
           border-radius: 10px
           padding: 10px 17px
           transition: color 0.2s ease-in-out, background-color 0.2s ease-in-out
+          position: relative
+          overflow: visible
+          
+          span
+            position: absolute
+            width: 16px
+            height: 16px
+            background-color: var(--cl-4)
+            border-radius: 50%
+            top: -3px
+            right: -3px
+            color: var(--cl-2)
+            z-index: 2
+            display: flex
+            align-items: center
+            justify-content: center
+            line-height: 100%
+            font-family: Arial, sans-serif
+            font-size: 12px
+            transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out
 
           &:hover
+            span
+              background-color: var(--cl-5)
+              color: var(--cl-1)
+
             background-color: var(--cl-4)
             color: var(--cl-2)
 
